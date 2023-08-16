@@ -1,0 +1,26 @@
+{
+    
+    "manifest_version": 3,
+    "name": "Gestor de Contraseñas",
+    "version": "1.0",
+    "description": "Una extensión de gestor de contraseñas",
+    
+    "icons": {
+      "128": "icon.png"
+      
+    },
+    "action": {
+      "default_popup": "login.html"
+    
+    },
+    "permissions": [
+      "storage"
+      
+    ],
+    "host_permissions": [
+      "*://*/*"
+    ]
+    
+  }
+ 
+  

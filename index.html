@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>PeYa-Vero</title>
+    <style>
+      body {
+        width: 600px;
+
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+      }
+
+      h1 {
+      }
+
+      /* Estilos del formulario */
+      #passwordForm {
+        margin-bottom: 20px;
+        padding-right: 50px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 11px;
+        border: none;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      /* Estilos de la lista de contraseñas */
+      #passwordList {
+        max-height: 500px;
+
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      #passwordList li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #444;
+        border-radius: 4px;
+        text-align: justify;
+        font-size: 11px;
+      }
+
+      #passwordList strong {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      #passwordList button {
+        background-color: #555;
+        color: #fff;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 11px;
+        margin-top: 5px;
+      }
+
+      /* Estilos específicos para el tema oscuro */
+      body.dark-theme {
+        background-color: #111;
+        color: #eee;
+      }
+
+      body.dark-theme #passwordList li {
+        background-color: #333;
+      }
+
+      #encabezado {
+        text-align: center;
+      }
+
+      #container {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      #passwordForm {
+        margin-right: 20px;
+        /* Margen a la derecha del formulario */
+      }
+
+      .btn btn-secondary {
+        text-align: center;
+        align-items: center;
+      }
+      .alert-popup {
+    position: fixed;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ec1313;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+  }
+    </style>
+  </head>
+
+  <body>
+    
+    <div id="encabezado">
+      
+    
+      <span class="">Tu gestor de contraseñas</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6ZM14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6ZM7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5h-1Z"/>
+      </svg>
+      <hr />
+    </div>
+    <br /><br />
+
+    <div id="container">
+      <form id="passwordForm">
+        <h4>Agregar Cuentas</h4>
+        <label for="websiteInput">Sitio web:</label>
+        <input type="text" id="websiteInput" name="websiteInput" required />
+        <br />
+
+        <label for="usernameInput">Nombre de usuario:</label>
+        <input
+          type="text"
+          id="usernameInput"
+          name="usernameInput"
+          required
+        /><br />
+
+        <label for="passwordInput">Contraseña:</label>
+        <input
+          type="password"
+          id="passwordInput"
+          name="passwordInput"
+          required
+        /><br />
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+        <br />
+      </form>
+
+      <div id="passwordList">
+        <h4>Cuentas Archivadas 
+          <svg xmlns="http://www.w3.org/2000/svg" width="25"  fill="currentColor" class="bi bi-database-fill-lock" viewBox="0 0 16 16">
+            <path d="M8 1c-1.573 0-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4s.875 1.755 1.904 2.223C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777C13.125 5.755 14 5.007 14 4s-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1Z"/>
+            <path d="M3.904 9.223C2.875 8.755 2 8.007 2 7v-.839c.457.432 1.004.751 1.49.972C4.722 7.693 6.318 8 8 8s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V7c0 .424-.155.802-.411 1.133a4.51 4.51 0 0 0-1.364-.125 2.988 2.988 0 0 0-2.197.731 4.525 4.525 0 0 0-1.254 1.237A12.31 12.31 0 0 1 8 10c-1.573 0-3.022-.289-4.096-.777ZM8 14c-1.682 0-3.278-.307-4.51-.867-.486-.22-1.033-.54-1.49-.972V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16c.09 0 .178 0 .266-.003A1.99 1.99 0 0 1 8 15v-1Zm0-1.5c0 .1.003.201.01.3A1.9 1.9 0 0 0 8 13c-1.573 0-3.022-.289-4.096-.777C2.875 11.755 2 11.007 2 10v-.839c.457.432 1.004.751 1.49.972C4.722 10.693 6.318 11 8 11c.086 0 .172 0 .257-.002A4.5 4.5 0 0 0 8 12.5Z"/>
+            <path d="M9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z"/>
+          </svg>
+        </h4>
+        <ul id="passwordItems"></ul>
+      </div>
+    </div>
+
+    <script src="/static/js/popup.js" type="module"></script>
+    
+  </body>
+</html>
